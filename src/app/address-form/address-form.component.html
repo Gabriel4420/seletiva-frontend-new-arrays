@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="address-card">
+    <h2>Endereço</h2>
+
+    <div class="input-group">
+      <input
+        id="cep"
+        type="text"
+        [(ngModel)]="cepValue"
+        (ngModelChange)="onCepChange()"
+        placeholder="Digite o CEP"
+        name="cep"
+        maxlength="8"
+      />
+    </div>
+
+    <div class="address-info" *ngIf="addressData">
+      <div class="info-group">
+        <span class="label">Endereço:</span>
+        <span class="value">{{ addressData.logradouro }}</span>
+      </div>
+
+      <div class="info-group">
+        <span class="label">Bairro:</span>
+        <span class="value">{{ addressData.bairro }}</span>
+      </div>
+
+      <div class="info-group">
+        <span class="label">Cidade:</span>
+        <span class="value">{{ addressData.localidade }}</span>
+      </div>
+
+      <div class="info-group">
+        <span class="label">Estado:</span>
+        <span class="value">{{ addressData.uf }}</span>
+      </div>
+    </div>
+
+    <app-weather-display *ngIf="weatherData" [weatherData]="weatherData" [cityWeather]="cityWeather"></app-weather-display>
+    <!-- Add after your weather-display component -->
+    <app-weather-forecast-grid *ngIf="forecastData.length > 0" [forecastData]="forecastData" [cityWeather]="cityWeather"></app-weather-forecast-grid>
+  </div>
+</div>
