@@ -63,7 +63,7 @@ export class AddressFormComponent {
 
   // Update your getWeatherData method to fetch forecast
   private getWeatherData(city: string) {
-    const apiKey = environment.openWeatherApiKey;
+    const apiKey = process.env['openWeatherApiKey'];
     this.http
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city},BR&appid=${apiKey}&units=metric`
