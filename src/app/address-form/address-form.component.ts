@@ -5,6 +5,7 @@ import { WeatherDisplayComponent } from '../weather-display/weather-display.comp
 import { CommonModule } from '@angular/common';
 import { WeatherForecastGridComponent } from '../weather-forecast-grid/weather-forecast-grid.component';
 import { ToastService } from '../toast/toast.service';
+import { environment } from '../../environments/environment';
 
 interface AddressData {
   cep: string;
@@ -42,7 +43,6 @@ export class AddressFormComponent {
         .get<AddressData>(`https://viacep.com.br/ws/${this.cepValue}/json/`)
         .subscribe({
           next: (data) => {
-
             this.addressData = data;
             this.getWeatherData(data.localidade);
             this.toastService.showSuccess('CEP encontrado com sucesso!');
@@ -63,7 +63,7 @@ export class AddressFormComponent {
 
   // Update your getWeatherData method to fetch forecast
   private getWeatherData(city: string) {
-    const apiKey = '397f0fab662dfe0b1549c41bfd15bf8a';
+    const apiKey = environment.openWeatherApiKey;
     this.http
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city},BR&appid=${apiKey}&units=metric`
