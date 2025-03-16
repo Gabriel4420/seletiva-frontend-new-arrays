@@ -1,7 +1,0 @@
-{
-  "buildCommand": "ng build",
-  "outputDirectory": "dist/seletiva-frontend",
-  "env": {
-    "openWeatherApiKey": "@openweather_api_key"
-  }
-}
