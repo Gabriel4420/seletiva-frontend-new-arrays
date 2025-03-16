@@ -19,8 +19,7 @@
     "module": "ES2022",
     "baseUrl": "./",
     "paths": {
-      "zone.js/node": ["node_modules/zone.js/dist/zone-node.js"],
-      "zone.js": ["node_modules/zone.js/dist/zone.js"]
+      // Remove zone.js mappings as they are handled by Angular CLI
     }
   },
   "angularCompilerOptions": {
