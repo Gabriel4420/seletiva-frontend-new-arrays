@@ -1,0 +1,32 @@
+<div>
+<h2 class="day-label-2">Resumo Semanal</h2>
+<div class="forecast-grid">
+
+  <div class="forecast-card" *ngFor="let forecast of forecastData">
+    <div class="weather-card">
+    <div class="day-label">{{ getDayOfWeek(forecast.dt_txt) }}</div>
+      <div class="weather-main">
+        <div class="temperature">
+          {{ forecast.main.temp | temperature }}°
+        </div>
+        <div class="weather-icon">
+          <img [src]="getWeatherIcon(forecast.weather[0].description)"
+               [alt]="forecast.weather[0].description">
+        </div>
+      </div>
+
+      <div class="location-info">
+        <div class="condition">{{ forecast.weather[0].description | weatherDescription }}</div>
+        <div class="city">{{ cityWeather.name }}, BR</div>
+      </div>
+
+      <div class="weather-details">
+        <div class="detail">
+          <span>H:{{ forecast.main.temp_max | temperature }}°</span>
+          <span>L:{{ forecast.main.temp_min | temperature }}°</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

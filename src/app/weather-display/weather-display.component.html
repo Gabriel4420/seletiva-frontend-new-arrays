@@ -1,0 +1,24 @@
+<div class="weather-card">
+  <div class="day-label">Hoje</div>
+  <div class="weather-main">
+    <div class="temperature">
+      {{ weatherData.main.temp | temperature }}°
+    </div>
+    <div class="weather-icon">
+      <img [src]="getWeatherIcon(weatherData.weather[0].description)"
+           [alt]="weatherData.weather[0].description">
+    </div>
+  </div>
+
+  <div class="location-info">
+    <div class="condition">{{ weatherData.weather[0].description | weatherDescription }}</div>
+    <div class="city">{{ cityWeather.name }}, BR</div>
+  </div>
+
+  <div class="weather-details">
+    <div class="detail">
+      <span>H:{{ weatherData.main.temp_max | temperature }}°</span>
+      <span>L:{{ weatherData.main.temp_min | temperature }}°</span>
+    </div>
+  </div>
+</div>
