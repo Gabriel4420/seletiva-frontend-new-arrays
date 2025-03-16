@@ -5,8 +5,6 @@ import { WeatherDisplayComponent } from '../weather-display/weather-display.comp
 import { CommonModule } from '@angular/common';
 import { WeatherForecastGridComponent } from '../weather-forecast-grid/weather-forecast-grid.component';
 import { ToastService } from '../toast/toast.service';
-import { environment } from '../../environments/environment';
-
 interface AddressData {
   cep: string;
   logradouro: string;
