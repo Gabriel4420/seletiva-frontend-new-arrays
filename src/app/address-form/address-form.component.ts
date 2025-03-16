@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { WeatherForecastGridComponent } from '../weather-forecast-grid/weather-forecast-grid.component';
 import { ToastService } from '../toast/toast.service';
 import { environment } from '../../environments/environment';
+import { config } from '../config/config';
 interface AddressData {
   cep: string;
   logradouro: string;
@@ -62,7 +63,7 @@ export class AddressFormComponent {
 
   // Update your getWeatherData method to fetch forecast
   private getWeatherData(city: string) {
-    const apiKey = environment.openWeatherApiKey;
+    const apiKey = config.openWeatherApiKey;
     this.http.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city},BR&appid=${apiKey}&units=metric`)
       .subscribe({
         next: (data: any) => {
